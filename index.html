@@ -579,6 +579,21 @@ body.dark .option.correct .opt-text, body.dark .option.wrong .opt-text{ color:va
   background:var(--no-tint) !important; border-color:var(--no) !important; border-left-color:var(--no) !important; }
 .explanation.ok .expl-label, body.dark .explanation.ok .expl-label{ color:var(--ok) !important; }
 .explanation.no .expl-label, body.dark .explanation.no .expl-label{ color:var(--no) !important; }
+
+
+/* The Begin button was re-styled as an outline: background transparent with
+   !important, but the colour declaration that made it white sits in a later
+   rule, so white text ended up on the pale ground at 1.13. The outlined form
+   is the intended one, so the text follows the border. */
+.btn-begin{ background:transparent !important; color:var(--ink) !important;
+  border:2px solid var(--ink) !important; }
+.btn-begin .sa{ color:var(--ink) !important; }
+.btn-begin:hover{ background:var(--ink) !important; color:var(--paper) !important; }
+.btn-begin:hover .sa{ color:var(--paper) !important; }
+body.dark .btn-begin{ color:var(--ink) !important; border-color:var(--ink) !important; }
+body.dark .btn-begin .sa{ color:var(--ink) !important; }
+body.dark .btn-begin:hover{ background:var(--ink) !important; color:var(--sand) !important; }
+body.dark .btn-begin:hover .sa{ color:var(--sand) !important; }
 </style>
 </head>
 <body>
