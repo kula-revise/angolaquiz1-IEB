@@ -681,7 +681,7 @@ window.kulaEmbed = (function(){
     <div><div class="review-all-label">Every question</div><div id="review-cards"></div></div>
     <div class="review-actions">
       <button class="primary-btn" id="restart-btn"><span class="btn-txt"><span class="btn-title">Return to menu</span><span class="btn-sub">Try another section or retake the full test</span></span><span class="btn-arrow">&#8635;</span></button>
-      <button class="primary-btn" id="finish-btn"><span class="btn-txt"><span class="btn-title">Finish</span><span class="btn-sub">Then tap Done to continue</span></span><span class="btn-arrow">&rarr;</span></button>
+      <button class="primary-btn" id="finish-btn"><span class="btn-txt"><span class="btn-title">Continue to Lesson 1</span><span class="btn-sub">Portugal Holds On</span></span><span class="btn-arrow">&rarr;</span></button>
     </div>
   </div>
 </div>
@@ -694,7 +694,7 @@ window.kulaEmbed = (function(){
 const MODE = "a";
 const DONE_LABEL = "Check complete";
 const DONE_TITLE = "What You Know Already";
-const DONE_TEXT  = "Tap Done to continue to Lesson 1, Portugal Holds On.";
+const DONE_TEXT = "Next: Lesson 1, Portugal Holds On.";
 const INTRO = "This checks recall: the dates, names and policies the Angola questions are built from. Take it before Lesson 1. A low score here is the normal starting point, not a warning, so do not worry about the number. Every question tells you why the answer is right. Write your score down at the end so you can compare it after Lesson 5.";
 const SECTIONS = [
   "Portugal holds on",
@@ -1119,20 +1119,8 @@ document.getElementById('prev-btn').addEventListener('click', () => {
 document.getElementById('exit-btn').addEventListener('click', () => { quiz.classList.add('hidden'); menu.classList.remove('hidden'); });
 document.getElementById('restart-btn').addEventListener('click', () => { review.classList.add('hidden'); menu.classList.remove('hidden'); });
 
-/* v2.1. Every file in a unit now ends the same way: Finish, then a pop-up whose
-   only job is to tell the learner to tap the platform's Done control. The four
-   knowledge checks previously ended on the results screen with no instruction,
-   so two files in every seven closed differently from the other five. */
-document.getElementById('finish-btn').addEventListener('click', () => {
-  const back = document.createElement('div');
-  back.className = 'pop-back';
-  back.innerHTML = '<div class="pop"><div class="pop-label">' + DONE_LABEL +
-    '</div><h3 style="margin:.4rem 0 .2rem;font-size:1.05rem;">' + DONE_TITLE +
-    '</h3><div class="pop-text">' + DONE_TEXT +
-    '</div><button class="pop-btn" id="fin-ok">Close</button></div>';
-  document.body.appendChild(back);
-  document.getElementById('fin-ok').addEventListener('click', () => back.remove());
-});
+/* the finish button advances; the modal it used to open was a dead end */
+
 
 function weakestSection(){
   let worst = SECTIONS[0], worstPct = 2;
